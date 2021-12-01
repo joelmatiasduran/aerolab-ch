@@ -1,24 +1,19 @@
-# NextJS Typescript Boilerplate
+# Aerolab Challenge
 
-Bootstrap a developer-friendly NextJS app configured with:
+This is the code for the mock that Aerolab provided, it uses the next stack:
 
 - [Typescript](https://www.typescriptlang.org/)
 - Linting with [ESLint](https://eslint.org/)
 - Formatting with [Prettier](https://prettier.io/)
 - Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
 - Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+-
 
 ## Preview
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+Preview the code live on [AerolabCh](http://stackblitz.com/):
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest&project-name=with-typescript-eslint-jest&repository-name=with-typescript-eslint-jest)
+[![Deploy with Vercel](https://vercel.com/button)](https://mywebsite.com)
 
 ## How to use
 
