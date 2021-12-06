@@ -1,7 +1,7 @@
 const Navbar: React.FC = () => {
   return (
     <>
-      <nav>Future Navbar</nav>
+      <nav className="center-it bg-blue-500 text-white">Future Navbar</nav>
     </>
   )
 }
