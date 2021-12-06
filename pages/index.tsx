@@ -1,4 +1,4 @@
-import Layout from './components/Layout'
+import Layout from '../components/Layout'
 
 export const Home = (): JSX.Element => (
   <Layout title="Aerolab | Challenge">
@@ -8,11 +8,12 @@ export const Home = (): JSX.Element => (
       Components: 
 
       Navbar
-      Footer 
+      Footer with payment methods 
+
       Cart 
       Checkout
+
       Notifications with actions, I can use lottie play with confetti
-      Footer with payment methods
       Notifications on each action
 
       Data: 
@@ -28,10 +29,11 @@ export const Home = (): JSX.Element => (
       Filter by Price 
       History of Redeemed products
 
+      
+      SWR
+
       Local Storage for the balance and the products
-      Metadata on Each product Title
-      
-      
+      Metadata on Each product Title  
       Loading or action while purchasing or reedeming
 
       
