@@ -118,22 +118,22 @@ const Footer: React.FC = () => {
                 <nav className="list-none mb-10">
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      First Link
+                      Visa
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Second Link
+                      Paypal
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Third Link
+                      Coinbase
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Fourth Link
+                      Mastercard
                     </a>
                   </li>
                 </nav>
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
           <div className="bg-indigo-900">
             <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
               <p className="text-white text-sm text-center sm:text-left">
-                © 2020 Dev —
+                © 2021 Made By —
                 <a
                   href="https://joelmatias.netlify.app/"
                   rel="noopener noreferrer"

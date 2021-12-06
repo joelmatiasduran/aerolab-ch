@@ -1,4 +1,6 @@
+import React from 'react'
 import Layout from '../components/Layout'
+// import Loading from '../components/Loading'
 
 export const Home = (): JSX.Element => (
   <Layout title="Aerolab | Challenge">
@@ -39,6 +41,7 @@ export const Home = (): JSX.Element => (
       
     */}
     <h1>Some content am I right?</h1>
+    {/* <Loading /> */}
   </Layout>
 )
 
