@@ -4,7 +4,7 @@ import AeroLogo from '../assets/aerolab-logo.svg'
 const Navbar: React.FC = () => {
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap bg-indigo-700 text-white p-6">
+      <nav className="flex items-center justify-between flex-wrap bg-indigo-700 text-white p-10">
         <div className="flex items-center flex-shrink-0 mr-6">
           <Link href="/">
             <a className="flex flex-row items-center justify-center">
@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
                 width={50}
                 height={50}
               />
-              <span className="font-semibold text-xl tracking-tight">
+              <span className="px-4 font-semibold text-xl tracking-tight">
                 Aerolab
               </span>
             </a>
@@ -34,12 +34,14 @@ const Navbar: React.FC = () => {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-            >
-              Initial
-            </a>
+            <Link href="/">
+              <a
+                href="#responsive-header"
+                className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+              >
+                Home
+              </a>
+            </Link>
             <Link href="/6766">
               <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                 Code
@@ -59,7 +61,7 @@ const Navbar: React.FC = () => {
               href="#"
               className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
             >
-              Cart
+              0
             </a>
           </div>
         </div>
