@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import AeroLogo from '../assets/aerolab-logo.svg'
+
 const Navbar: React.FC = () => {
   return (
     <>
