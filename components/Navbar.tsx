@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
                 height={50}
               />
               <span className="px-4 font-semibold text-xl tracking-tight">
-                Aerolab
+                A-commerce
               </span>
             </a>
           </Link>

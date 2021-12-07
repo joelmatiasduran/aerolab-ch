@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
               <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                 <h2 className="title-font font-bold text-white tracking-widest text-md mb-3">
-                  CATEGORIES
+                  ABOUT
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                 <h2 className="title-font font-bold text-white tracking-widest text-md mb-3">
-                  CATEGORIES
+                  HELP
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
@@ -113,22 +113,31 @@ const Footer: React.FC = () => {
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <a className="text-white hover:text-red-300" href="#">
+                    <a href="#" className="text-white hover:text-red-300">
                       Visa
                     </a>
                   </li>
                   <li>
-                    <a className="text-white hover:text-red-300" href="#">
+                    <a
+                      href="https://www.paypal.com/"
+                      className="text-white hover:text-red-300"
+                    >
                       Paypal
                     </a>
                   </li>
                   <li>
-                    <a className="text-white hover:text-red-300" href="#">
+                    <a
+                      href="https://www.coinbase.com/"
+                      className="text-white hover:text-red-300"
+                    >
                       Coinbase
                     </a>
                   </li>
                   <li>
-                    <a className="text-white hover:text-red-300" href="#">
+                    <a
+                      href="https://www.mastercard.us/en-us.html"
+                      className="text-white hover:text-red-300"
+                    >
                       Mastercard
                     </a>
                   </li>
@@ -143,7 +152,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://joelmatias.netlify.app/"
                   rel="noopener noreferrer"
-                  className="text-white ml-1 hover:text-red-400"
+                  className="text-white ml-1 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
                   target="_blank"
                 >
                   @Joel
@@ -152,7 +161,7 @@ const Footer: React.FC = () => {
               <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                 <a
                   href="https://twitter.com/aerolab"
-                  className="ml-3 text-gray-200 hover:text-red-400"
+                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
                 >
                   <svg
                     fill="currentColor"
@@ -168,7 +177,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.instagram.com/aerolab/"
                   target="_blank"
-                  className="ml-3 text-gray-200 hover:text-red-400"
+                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
                   rel="noreferrer"
                 >
                   <svg
@@ -194,7 +203,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.linkedin.com/company/aerolab-digital/"
                   target="_blank"
-                  className="ml-3 text-gray-200 hover:text-red-400"
+                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
                   rel="noreferrer"
                 >
                   <svg
