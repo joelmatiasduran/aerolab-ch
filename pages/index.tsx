@@ -7,11 +7,17 @@ const Home: React.FC = () => {
     <Layout title="Aerolab | Challenge">
       <Hero />
       <section className="flex flex-col items-center justify-center min-h-screen text-4xl">
-        <h1>Here is going to be the products</h1>
-        {/* <p>{JSON.stringify(user.points)}</p>
-        <p>{JSON.stringify(user.name)}</p> */}
+        <div>
+          <h1>
+            {' '}
+            Sort by : <button>Lowest</button> <button>Lowest</button>
+          </h1>
+        </div>
         <Products name={''} price={''} />
       </section>
+      <div>
+        <h3 className="text-3xl text-left px-32"> Page 1 - 2</h3>
+      </div>
     </Layout>
   )
 }

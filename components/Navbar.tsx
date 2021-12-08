@@ -54,22 +54,20 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               </a>
             </Link>
             <a
-              href="https://aerolab.co/"
-              target="_blank"
+              href="/history"
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-              rel="noreferrer"
             >
-              Aerolab
+              History
             </a>
           </div>
-          <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-row items-center justify-center py-2 border hover:bg-white hover:text-yellow-500 duration-300 rounded-lg">
             <a
               href="#"
-              className="flex flex-row items-center justify-center text-3xl leading-none border rounded mt-4 px-6 lg:mt-0 hover:bg-white hover:text-yellow-500 duration-300"
+              className="flex flex-row items-center justify-center text-3xl leading-none mt-4 px-2 lg:mt-0"
             >
-              <span className="px-2"> {user.points}</span>
-              <Image src={AeroCoin} alt="Coins" width={50} height={50} />
+              <span className="px-2">{user.points}</span>
             </a>
+            <Image src={AeroCoin} alt="Coins" width={50} height={50} />
           </div>
         </div>
       </nav>
