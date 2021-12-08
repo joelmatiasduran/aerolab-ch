@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                 <span className="ml-3 text-xl text-white">Aerolab</span>
               </a>
               <p className="mt-2 text-sm text-white">
-                Aerolab is always shifting, finding our way as we make it.
+                Aerolab is the place where magic happen.
               </p>
             </div>
             <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -113,7 +113,10 @@ const Footer: React.FC = () => {
                 </h2>
                 <nav className="list-none mb-10">
                   <li>
-                    <a href="#" className="text-white hover:text-red-300">
+                    <a
+                      href="https://usa.visa.com/"
+                      className="text-white hover:text-red-300"
+                    >
                       Visa
                     </a>
                   </li>

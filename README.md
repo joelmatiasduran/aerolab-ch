@@ -10,13 +10,11 @@ This is the code for the mock that Aerolab provided, it uses the next stack:
 - [Next Js](hhttps://nextjs.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Lottie by Airbnb](http://airbnb.io/lottie/#/)
-- Tailwind CSS with JIT
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Preview
 
-Preview the code live on [AerolabCh](http://stackblitz.com/):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://mywebsite.com)
+Preview the code live on [AerolabCh](https://aerolab-challenge-joel.vercel.app/):
 
 ## How to use
 

@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
                 height={50}
               />
               <span className="px-4 font-semibold text-xl tracking-tight">
-                A-commerce
+                Aero
               </span>
             </a>
           </Link>
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
           <div>
             <a
               href="#"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+              className="inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0"
             >
               0
             </a>

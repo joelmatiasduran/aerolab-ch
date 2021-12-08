@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
               </h1>
               <hr className=" w-12 h-1 bg-orange-500 rounded-full mt-8"></hr>
               <p className="text-gray-800 text-base leading-relaxed mt-8 font-semibold">
-                Your ultimate ecommerce site. Carries all the information you
+                Your ultimate e-commerce site. Carries all the information you
                 need while purchasing your favorite products
               </p>
               <div className="get-app flex space-x-5 mt-10 justify-center md:justify-start">
