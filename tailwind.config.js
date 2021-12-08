@@ -6,6 +6,11 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('../assets/header-x1.png')",
       },
+      colors: {
+        'aero-blue': '#18dcfc',
+      },
+      //rgba(110,232,255,255)
+      //#6ee8ff
     },
   },
   variants: {

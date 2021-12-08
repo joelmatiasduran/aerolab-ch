@@ -1,6 +1,7 @@
 import React from 'react'
-// import Image from 'next/image'
-// import AeroHero from '../assets/header-x1.png'
+import Image from 'next/image'
+import AeroHero from '../assets/header-x1.png'
+
 // interface HeroProps {
 
 // }
@@ -8,22 +9,18 @@ import React from 'react'
 const Hero: React.FC = () => {
   return (
     <>
-      <div className="hero bg-hero-pattern md:bg-cover py-32">
-        {/* <Image
-          src={AeroHero}
-          alt="Picture of the author"
-          className="absolute"
-        /> */}
-        <div className="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
-          <div className="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <div className="relative top-0 left-0 pb-32 bg-aero-blue md:bg-transparent">
+        <Image src={AeroHero} alt="Headphones" layout="responsive" />
+        <div className="absolute lg:top-32 md:top-20 top-10  left-0 container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+          <div className="hero-wrapper grid grid-cols-4 md:grid-cols-12 gap-8 items-center">
             <div className="hero-text col-span-6">
-              <h1 className=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">
+              <h1 className="font-bold text-2xl md:text-4xl lg:text-5xl max-w-xl text-gray-900 leading-tight">
                 Don not listen to what they say, Go See
               </h1>
               <hr className=" w-12 h-1 bg-orange-500 rounded-full mt-8"></hr>
               <p className="text-gray-800 text-base leading-relaxed mt-8 font-semibold">
                 Your ultimate e-commerce site. Carries all the information you
-                need while purchasing your favorite products
+                need while redeeming your favorite products
               </p>
               <div className="get-app flex space-x-5 mt-10 justify-center md:justify-start">
                 <button className="apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">

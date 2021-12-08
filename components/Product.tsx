@@ -1,5 +1,6 @@
 interface ProductProps {
   price: string
+  name: string
 }
 
 const Product: React.FC<ProductProps> = () => {
