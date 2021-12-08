@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                 <span className="ml-3 text-xl text-white">Aerolab</span>
               </a>
               <p className="mt-2 text-sm text-white">
-                Aerolab is the place where magic happen.
+                Aerolab is the place where magic happens.
               </p>
             </div>
             <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">

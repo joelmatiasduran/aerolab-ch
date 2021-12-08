@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           <div className="flex flex-row items-center justify-center">
             <a
               href="#"
-              className="flex flex-row items-center justify-center text-3xl py-2 leading-none border rounded mt-4 px-6 lg:mt-0 hover:bg-white hover:text-yellow-500 duration-300"
+              className="flex flex-row items-center justify-center text-3xl leading-none border rounded mt-4 px-6 lg:mt-0 hover:bg-white hover:text-yellow-500 duration-300"
             >
               <span className="px-2"> {user.points}</span>
               <Image src={AeroCoin} alt="Coins" width={50} height={50} />
