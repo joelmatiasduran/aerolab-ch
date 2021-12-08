@@ -7,6 +7,7 @@ import Loading from '../components/Loading'
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   const [pageLoading, setPageLoading] = useState<boolean>(false)
+
   useEffect(() => {
     const handleStart = () => {
       setPageLoading(true)

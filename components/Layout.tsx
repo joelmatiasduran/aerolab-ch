@@ -1,7 +1,8 @@
-import React from 'react'
+import useSWR from 'swr'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import Head from 'next/head'
+import { fetcher } from '../utils/functions'
 
 interface Props {
   children?: React.ReactNode
@@ -9,6 +10,11 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children, title }) => {
+  const { data: user, error } = useSWR('/api/user/me', fetcher)
+  if (error) return <p>Error fetching user</p>
+  // const [addPointsIsOpen, setAddPointsIsOpen] = useState(false)    Modal
+  // const [userHistoryIsOpen, setUserHistoryIsOpen] = useState(false) Modal
+
   return (
     <>
       <Head>
@@ -17,7 +23,7 @@ const Layout: React.FC<Props> = ({ children, title }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header>
-        <Navbar />
+        <Navbar user={user ? user : 'Loading ...'} />
       </header>
       <main>{children}</main>
       <Footer />

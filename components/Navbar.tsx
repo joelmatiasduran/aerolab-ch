@@ -1,22 +1,27 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import AeroLogo from '../assets/aerolab-logo.svg'
+import AeroCoin from '../assets/icons/coin.svg'
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  user: [UserObj] | any
+}
+
+interface UserObj {
+  points: number | null
+  name: string
+}
+
+const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-indigo-700 text-white p-10">
         <div className="flex items-center flex-shrink-0 mr-6">
           <Link href="/">
             <a className="flex flex-row items-center justify-center">
-              <Image
-                src={AeroLogo}
-                alt="Picture of the author"
-                width={50}
-                height={50}
-              />
+              <Image src={AeroLogo} alt="Aerolab Logo" width={50} height={50} />
               <span className="px-4 font-semibold text-xl tracking-tight">
-                Aero
+                {user.name}
               </span>
             </a>
           </Link>
@@ -57,12 +62,13 @@ const Navbar: React.FC = () => {
               Aerolab
             </a>
           </div>
-          <div>
+          <div className="flex flex-row items-center justify-center">
             <a
               href="#"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0"
+              className="flex flex-row items-center justify-center text-3xl py-2 leading-none border rounded mt-4 px-6 lg:mt-0 hover:bg-white hover:text-yellow-500 duration-300"
             >
-              0
+              <span className="px-2"> {user.points}</span>
+              <Image src={AeroCoin} alt="Coins" width={50} height={50} />
             </a>
           </div>
         </div>
