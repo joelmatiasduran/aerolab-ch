@@ -12,8 +12,6 @@ interface Props {
 const Layout: React.FC<Props> = ({ children, title }) => {
   const { data: user, error } = useSWR('/api/user/me', fetcher)
   if (error) return <p>Error fetching user</p>
-  // const [addPointsIsOpen, setAddPointsIsOpen] = useState(false)    Modal
-  // const [userHistoryIsOpen, setUserHistoryIsOpen] = useState(false) Modal
 
   return (
     <>

@@ -49,11 +49,16 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 Home
               </a>
             </Link>
-            <Link href="/6766">
-              <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                Code
-              </a>
-            </Link>
+
+            <a
+              href="https://github.com/joelmatiasduran/aerolab-ch"
+              target="_blank"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+              rel="noreferrer"
+            >
+              Code
+            </a>
+
             <a
               href="/history"
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
