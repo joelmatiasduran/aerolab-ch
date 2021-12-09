@@ -5,7 +5,7 @@ import AeroCoin from '../assets/icons/coin.svg'
 import { motion } from 'framer-motion'
 
 interface NavbarProps {
-  user: [UserObj] | any
+  user: UserObj
 }
 
 interface UserObj {
