@@ -22,8 +22,8 @@ const Hero: React.FC = () => {
                 Your ultimate e-commerce site. Carries all the information you
                 need while redeeming your favorite products
               </p>
-              <div className="get-app flex space-x-5 pt-10 justify-center md:justify-start">
-                <button className="apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
+              <div className="flex space-x-5 pt-10 justify-center md:justify-start">
+                <button className="bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
                   <div className="logo">
                     <svg
                       className="w-6 h-6"

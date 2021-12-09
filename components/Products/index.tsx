@@ -34,7 +34,7 @@ const Products: React.FC<ProductsProps> = () => {
                   boxShadow: '0px 0px 40px #ffd900 ',
                 }}
                 key={index}
-                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 transform hover:scale-150 p-6 rounded-xl cursor-pointer"
+                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 p-6 rounded-xl cursor-pointer"
               >
                 <Image
                   key={index}
@@ -42,13 +42,11 @@ const Products: React.FC<ProductsProps> = () => {
                   width={250}
                   height={200}
                 />
-                <h3 className="text-sm text-gray-400">{products.category}</h3>
-                <h2 className="text-xl font-bold group-hover:text-white">
-                  {products.name}
-                </h2>
+                <h3 className="text-lg text-gray-400">{products.category}</h3>
+                <h2 className="text-xl font-medium">{products.name}</h2>
 
                 <button className="flex flex-col-reverse pt-6 w-full min-w-full">
-                  <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 group-hover:text-black group-hover:bg-white hover:bg-aero-blue text-white rounded-lg duration-300">
+                  <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
                     <button className="text-lg pl-4">Redeem</button>
                     <div className="flex flex-row items-center justify-center">
                       <h3 className="text-lg">{products.cost}</h3>
