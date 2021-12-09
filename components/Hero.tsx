@@ -9,7 +9,7 @@ import AeroHero from '../assets/header-x1.png'
 const Hero: React.FC = () => {
   return (
     <>
-      <div className="relative top-0 left-0 pb-32 bg-aero-blue min-h-full">
+      <div className="relative top-0 left-0 pb-32 bg-aero-blue min-h-full md:min-h-screen lg:min-h-full">
         <Image src={AeroHero} alt="Headphones" layout="responsive" />
         <div className="absolute lg:top-32 md:top-20 top-10  left-0 container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
           <div className="hero-wrapper grid grid-cols-4 md:grid-cols-12 gap-8 items-center">

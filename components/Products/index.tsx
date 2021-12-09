@@ -35,7 +35,7 @@ const Products: React.FC<ProductsProps> = () => {
                   boxShadow: '0px 0px 40px #ffd900 ',
                 }}
                 key={index}
-                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white hover:bg-black group border border-gray-200 p-6 rounded-xl duration-300 cursor-pointer"
+                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white hover:bg-black group border border-gray-200 p-6 rounded-xl cursor-pointer"
               >
                 <Image
                   key={index}
