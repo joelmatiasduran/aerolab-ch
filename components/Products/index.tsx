@@ -31,11 +31,10 @@ const Products: React.FC<ProductsProps> = () => {
                 initial={{ x: '-250vw' }}
                 animate={{ x: 0 }}
                 whileHover={{
-                  scale: 1.1,
                   boxShadow: '0px 0px 40px #ffd900 ',
                 }}
                 key={index}
-                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 p-6 rounded-xl cursor-pointer"
+                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 transform hover:scale-150 p-6 rounded-xl cursor-pointer"
               >
                 <Image
                   key={index}
