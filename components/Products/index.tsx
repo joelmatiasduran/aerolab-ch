@@ -35,13 +35,13 @@ const Products: React.FC<ProductsProps> = () => {
                   boxShadow: '0px 0px 40px #ffd900 ',
                 }}
                 key={index}
-                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white hover:bg-black group border border-gray-200 p-6 rounded-xl cursor-pointer"
+                className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 p-6 rounded-xl cursor-pointer"
               >
                 <Image
                   key={index}
                   src={products.img.hdUrl}
                   width={250}
-                  height={250}
+                  height={200}
                 />
                 <h3 className="text-sm text-gray-400">{products.category}</h3>
                 <h2 className="text-xl font-bold group-hover:text-white">
