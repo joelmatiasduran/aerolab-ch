@@ -1,9 +1,6 @@
 import React from 'react'
 import { useRef, useEffect } from 'react'
 import lottie from 'lottie-web'
-// interface LoadingProps {
-
-// }
 
 const Loading: React.FC = () => {
   const elementottie = useRef<HTMLDivElement>(null)

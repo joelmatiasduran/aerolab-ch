@@ -10,18 +10,9 @@ const Home: React.FC = () => {
   return (
     <Layout title="Aerolab | Challenge">
       <Hero />
-      <section className="flex flex-col items-center justify-center min-h-screen text-4xl">
-        <div>
-          <h1>
-            {' '}
-            Sort by : <button>Lowest</button> <button>Lowest</button>
-          </h1>
-        </div>
-        <Products name={''} price={''} user={user ? user : 0} />
+      <section className="flex flex-col items-center justify-center min-h-full text-4xl">
+        <Products user={user ? user : 0} name={''} price={0} />
       </section>
-      <div>
-        <h3 className="text-3xl text-left px-32"> Page 1 - 2</h3>
-      </div>
     </Layout>
   )
 }

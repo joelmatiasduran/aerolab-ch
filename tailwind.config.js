@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./components/**/*.tsx', './pages/**/*.tsx', './public/**/*.html'], //add this line
+  purge: ['./components/**/*.tsx', './pages/**/*.tsx', './public/**/*.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -9,8 +9,6 @@ module.exports = {
       colors: {
         'aero-blue': '#18dcfc',
       },
-      //rgba(110,232,255,255)
-      //#6ee8ff
     },
   },
   variants: {

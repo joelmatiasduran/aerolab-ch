@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                 <span className="ml-3 text-xl text-white">Aerolab</span>
               </a>
               <p className="mt-2 text-sm text-white">
-                Aerolab is the place where magic happens.
+                Aerolab, the place where the magic happens.
               </p>
             </div>
             <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -33,22 +33,22 @@ const Footer: React.FC = () => {
                 <nav className="list-none mb-10">
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      First Link
+                      Us
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Second Link
+                      The Company
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Third Link
+                      Aerolab
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Fourth Link
+                      Clients
                     </a>
                   </li>
                 </nav>
@@ -60,22 +60,22 @@ const Footer: React.FC = () => {
                 <nav className="list-none mb-10">
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      First Link
+                      Faq
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Second Link
+                      Info
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Third Link
+                      Contact
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Fourth Link
+                      More
                     </a>
                   </li>
                 </nav>
@@ -87,22 +87,22 @@ const Footer: React.FC = () => {
                 <nav className="list-none mb-10">
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      First Link
+                      Laptops
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Second Link
+                      Cameras
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Third Link
+                      Drones
                     </a>
                   </li>
                   <li>
                     <a className="text-white hover:text-red-300" href="#">
-                      Fourth Link
+                      Audio
                     </a>
                   </li>
                 </nav>
