@@ -13,7 +13,7 @@ const redeem = async (
 
   const { productId, cost } = req.body
 
-  if (productId.length !== 24) return res.status(400).end()
+  // if (productId.length !== 24) return res.status(400).end()
 
   const userPoints = await fetch(
     'https://coding-challenge-api.aerolab.co/user/me',

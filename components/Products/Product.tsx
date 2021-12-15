@@ -1,5 +1,5 @@
-// import { useState } from 'react'
-// import { mutate } from 'swr'
+import { useState } from 'react'
+import { mutate } from 'swr'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import AeroCoin from '../../assets/icons/coin.svg'
@@ -13,6 +13,27 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
+  const [isRedeeming, setIsRedeeming] = useState<boolean>(false)
+
+  const productId = products._id
+  const handleRedeem = async (productId: string): Promise<void> => {
+    setIsRedeeming(true)
+    const response = await fetch('/api/redeem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        productId: productId,
+        cost: products.cost,
+      }),
+    })
+    setIsRedeeming(false)
+    // console.log(response)
+    response
+    mutate('/api/user/me', { ...products, points: userCash - products.cost })
+  }
+
   return (
     <>
       <motion.div
@@ -36,30 +57,51 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
         />
         <h3 className="text-lg text-gray-400">{products.category}</h3>
         <h2 className="text-xl font-medium">{products.name}</h2>
-
-        {userCash > products.cost ? (
-          <button
-            className="flex flex-col-reverse pt-6 w-full min-w-full"
-            // onClick={() => handleRedeem(products.id)}
-          >
-            <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
-              <button className="text-lg pl-4">Redeem now!</button>
-              <div className="flex flex-row items-center justify-center">
-                <h3 className="text-lg">{products.cost}</h3>
-                <Image src={AeroCoin} alt="Coins Icon" width={30} height={30} />
-              </div>
-            </div>
-          </button>
+        {isRedeeming ? (
+          <p className="bg-black text-white">
+            <svg
+              className="animate-spin h-5 w-5 mr-3 text-white"
+              viewBox="0 0 24 24"
+            ></svg>
+            Procesing..
+          </p>
         ) : (
-          <button className="flex flex-col-reverse pt-6 w-full min-w-full">
-            <div className="flex flex-row justify-between w-full min-w-full py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg duration-300">
-              <button className="text-lg pl-4">You need</button>
-              <div className="flex flex-row items-center justify-center">
-                <h3 className="text-lg"> +{products.cost - userCash}</h3>
-                <Image src={AeroCoin} alt="Coins Icon" width={30} height={30} />
-              </div>
-            </div>
-          </button>
+          <>
+            {userCash > products.cost ? (
+              <button
+                className="flex flex-col-reverse pt-6 w-full min-w-full"
+                onClick={() => handleRedeem(productId)}
+              >
+                <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
+                  <button className="text-lg pl-4">Redeem now!</button>
+                  <div className="flex flex-row items-center justify-center">
+                    <h3 className="text-lg">{products.cost}</h3>
+                    <Image
+                      src={AeroCoin}
+                      alt="Coins Icon"
+                      width={30}
+                      height={30}
+                    />
+                  </div>
+                </div>
+              </button>
+            ) : (
+              <button className="flex flex-col-reverse pt-6 w-full min-w-full">
+                <div className="flex flex-row justify-between w-full min-w-full py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg duration-300">
+                  <button className="text-lg pl-4">You need</button>
+                  <div className="flex flex-row items-center justify-center">
+                    <h3 className="text-lg"> +{products.cost - userCash}</h3>
+                    <Image
+                      src={AeroCoin}
+                      alt="Coins Icon"
+                      width={30}
+                      height={30}
+                    />
+                  </div>
+                </div>
+              </button>
+            )}
+          </>
         )}
       </motion.div>
     </>

@@ -9,7 +9,7 @@ export interface UserObj {
 
 export interface ProductsTypes {
   cost: number
-  id: string
+  _id: string
   name: string
   category: string
   img: ImageTypes

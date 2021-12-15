@@ -5,6 +5,7 @@ import Product from './Product'
 import Loading from '../Loading'
 import { motion } from 'framer-motion'
 import { UserTypes } from '../../interfaces/AeroTypes'
+import LoadingProduct from './LoadingProduct'
 
 interface ProductsProps {
   name: string
@@ -26,7 +27,6 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
   const [list, setList] = useState<[] | null | any>(products)
 
   //Handlers
-
   const HandleSort = () => {
     setList(
       products.sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
@@ -38,26 +38,26 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
     <>
       <div className="flex flex-col md:flex-row w-full p-6 m-6  pt-0 mt-0 text-white">
         <motion.button
-          initial={{ x: '-250vw', boxShadow: '0px 0px 20px #00f7ff' }}
+          initial={{ x: '-250vw' }}
           animate={{ x: 0 }}
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900',
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black hover:text-white"
+          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
         >
           Most Recent
         </motion.button>
         <motion.button
-          initial={{ x: '-250vw', boxShadow: '0px 0px 20px #00f7ff' }}
+          initial={{ x: '-250vw' }}
           animate={{ x: 0 }}
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900',
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black hover:text-white"
+          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
           onClick={() => {
             HandleSort
           }}
@@ -65,14 +65,14 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
           Lower Price
         </motion.button>
         <motion.button
-          initial={{ x: '-250vw', boxShadow: '0px 0px 20px #00f7ff' }}
+          initial={{ x: '-250vw' }}
           animate={{ x: 0 }}
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900',
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black hover:text-white"
+          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
           onClick={() =>
             setList(
               products.sort((b, a) =>
@@ -84,14 +84,14 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
           Higher Price
         </motion.button>
         <motion.button
-          initial={{ x: '-250vw', boxShadow: '0px 0px 20px #00f7ff' }}
+          initial={{ x: '-250vw' }}
           animate={{ x: 0 }}
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900',
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black hover:text-white"
+          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
         >
           A-Z
         </motion.button>
@@ -99,23 +99,27 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
 
       <div
         className={
-          list
+          products
             ? 'grid grid-cols-1d-cols-3 xl:grid-cols-4 gap-6 bg-white'
             : 'w-full'
         }
       >
-        {list ? (
-          list
+        {products ? (
+          products
             // .sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
             .map((products, index) => {
               return (
                 <>
-                  <Product
-                    key={index}
-                    products={products}
-                    userCash={userCash}
-                    index={index}
-                  />
+                  {list ? (
+                    <Product
+                      key={index}
+                      products={products}
+                      userCash={userCash}
+                      index={index}
+                    />
+                  ) : (
+                    <LoadingProduct key={index} />
+                  )}
                 </>
               )
             })

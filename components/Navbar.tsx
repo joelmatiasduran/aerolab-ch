@@ -5,6 +5,7 @@ import AeroLogo from '../assets/aerolab-logo.svg'
 import AeroCoin from '../assets/icons/coin.svg'
 import { motion } from 'framer-motion'
 import { UserObj } from '../interfaces/AeroTypes'
+import AddPoints from './AddPoints'
 
 interface NavbarProps {
   user: UserObj
@@ -91,6 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           </motion.div>
         </div>
       </nav>
+      <AddPoints points={user.points} user={user} />
     </>
   )
 }
