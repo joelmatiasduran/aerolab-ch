@@ -86,8 +86,10 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             className="flex flex-row items-center justify-center py-4 border hover:bg-white hover:text-yellow-500 rounded-lg"
           >
             <a href="#" className="text-3xl leading-none px-2 lg:mt-0">
-              <span className="px-2">{user.points}</span>
-              <Image src={AeroCoin} alt="Coins" width={30} height={30} />
+              <span className="px-2">
+                {user.points == 0 ? 'Add Points !!' : user.points}
+              </span>
+              <Image src={AeroCoin} alt="Coins" width={30} height={20} />
             </a>
           </motion.div>
         </div>

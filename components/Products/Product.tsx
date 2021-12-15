@@ -62,13 +62,13 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
             height={200}
             className={
               isHovered
-                ? 'object-contain hover:object-fit transform scale-110 duration-300'
-                : 'object-contain hover:object-fit transform duration-300'
+                ? 'object-contain hover:object-fit transform scale-110 duration-150'
+                : 'object-contain hover:object-fit transform duration-150'
             }
           />
           <h3 className="text-lg text-gray-400">{products.category}</h3>
           <h2 className="text-xl font-medium">{products.name}</h2>
-          <h2 className="text-2xl font-base pt-2 pr-2">
+          <h2 className="text-2xl font-base pt-2 pr-2 ">
             ${''}
             {products.cost}
           </h2>
