@@ -2,7 +2,6 @@ import { useState } from 'react'
 import useSWR from 'swr'
 import { fetcher } from '../../utils/functions'
 import Product from './Product'
-import Loading from '../Loading'
 import { motion } from 'framer-motion'
 import { UserTypes } from '../../interfaces/AeroTypes'
 import LoadingProduct from './LoadingProduct'
@@ -20,7 +19,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
   const { data: products, error } = useSWR('/api/products', fetcher)
   if (error) return <p>Error loading products, the sadness..</p>
 
-  //Small Refactor
+  //Refactor
   const userCash = user.points
 
   //Sorting
@@ -36,7 +35,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row w-full p-6 m-6  pt-0 mt-0 text-white">
+      <div className="flex flex-col md:flex-row w-full p-6 pl-0 m-6  pt-0 mt-0 text-white">
         <motion.button
           initial={{ x: '-250vw' }}
           animate={{ x: 0 }}
@@ -45,7 +44,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
         >
           Most Recent
         </motion.button>
@@ -57,7 +56,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
           onClick={() => {
             HandleSort
           }}
@@ -72,7 +71,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
           onClick={() =>
             setList(
               products.sort((b, a) =>
@@ -91,7 +90,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          className="p-6 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
         >
           A-Z
         </motion.button>
@@ -124,7 +123,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
               )
             })
         ) : (
-          <Loading />
+          <LoadingProduct key={0} />
         )}
       </div>
     </>
