@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           >
             <a href="#" className="text-3xl leading-none px-2 lg:mt-0">
               <span className="px-2">
-                {user.points == 0 ? 'Add Points !!' : user.points}
+                {user.points === 0 ? 'Add Points !!' : user.points}
               </span>
               <Image src={AeroCoin} alt="Coins" width={30} height={20} />
             </a>

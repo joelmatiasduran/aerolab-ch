@@ -35,6 +35,7 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
     // console.log(response)
     response
     mutate('/api/user/me', { ...products, points: userCash - products.cost })
+    mutate('/api/user/history')
   }
 
   return (
@@ -60,11 +61,14 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
             alt={products.name}
             width={250}
             height={200}
-            className={
-              isHovered
-                ? 'object-contain hover:object-fit transform scale-110 duration-150'
-                : 'object-contain hover:object-fit transform duration-150'
-            }
+            className={`object-contain hover:object-fit transform duration-150 ${
+              isHovered ? 'transform scale-110' : ''
+            }`}
+            // className={
+            //   isHovered
+            //     ? 'object-contain hover:object-fit transform scale-110 duration-150'
+            //     : 'object-contain hover:object-fit transform duration-150'
+            // }
           />
           <h3 className="text-lg text-gray-400">{products.category}</h3>
           <h2 className="text-xl font-medium">{products.name}</h2>
