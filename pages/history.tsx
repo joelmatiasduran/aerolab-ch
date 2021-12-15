@@ -20,7 +20,10 @@ const history: React.FC<historyProps> = () => {
         <div className="flex justify-center my-6">
           <div className="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
             <div className="flex-1">
-              <table className="w-full text-sm lg:text-base" cellSpacing="0">
+              <table
+                className="relative w-full text-sm lg:text-base rounded-full"
+                cellSpacing="0"
+              >
                 <thead>
                   <tr className="h-12 uppercase">
                     <th className="hidden md:table-cell"></th>
@@ -41,16 +44,19 @@ const history: React.FC<historyProps> = () => {
                   ? data.map((data, index) => {
                       return (
                         <>
-                          <tbody key={index}>
-                            <tr className="my-4 hover:bg-black hover:text-white duration-150 px-4 transform hover:scale-110 cursor-pointer">
+                          <tbody
+                            key={index}
+                            className="hover:my-12 hover:bg-black hover:text-white duration-150 transform hover:scale-110 cursor-pointer rounded-full"
+                          >
+                            <tr className="hover:z-10 rounded-full">
                               <td className="hidden pb-4 md:table-cell">
                                 <a href="#">
                                   <Image
                                     src={data.img.hdUrl}
                                     className="w-20 rounded"
                                     alt={data.name}
-                                    width={120}
-                                    height={100}
+                                    width={100}
+                                    height={80}
                                   />
                                 </a>
                               </td>
@@ -80,7 +86,7 @@ const history: React.FC<historyProps> = () => {
                                 </span>
                               </td>
                               <td className="text-right">
-                                <span className="text-sm lg:text-base font-medium">
+                                <span className="text-sm lg:text-base font-medium px-4">
                                   {data.createDate.substr(0, 10)}
                                 </span>
                               </td>
