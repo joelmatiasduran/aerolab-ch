@@ -31,11 +31,27 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
   }
   return (
     <>
-      <div
-        className="bg-black p-6 text-white cursor-pointer"
-        onClick={() => handleAdd(7500)}
-      >
-        Pog
+      <div className="flex flex-row bg-white p-6 text-white">
+        <button
+          onClick={() => handleAdd(1000)}
+          className="text-2xl px-6 py-4 text-black bg-aero-blue hover:bg-black hover:text-white font-bold  rounded-xl cursor-pointer duration-300  mx-4"
+        >
+          +1000
+        </button>
+
+        <button
+          onClick={() => handleAdd(5000)}
+          className="text-2xl px-6 py-4 text-black bg-aero-blue hover:bg-black hover:text-white font-bold  rounded-xl cursor-pointer duration-300  mx-4"
+        >
+          +5000
+        </button>
+
+        <button
+          onClick={() => handleAdd(7500)}
+          className="text-2xl px-6 py-4 text-black bg-aero-blue hover:bg-black hover:text-white font-bold  rounded-xl cursor-pointer duration-300  mx-4"
+        >
+          +7000
+        </button>
       </div>
     </>
   )

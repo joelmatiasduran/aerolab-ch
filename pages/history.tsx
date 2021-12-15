@@ -16,12 +16,12 @@ const history: React.FC<historyProps> = () => {
   return (
     <>
       <Layout title="Aerolab | History">
-        <h1 className="text-3xl text-center">History</h1>
+        <h1 className="text-3xl text-center underline">History</h1>
         <div className="flex justify-center my-6">
           <div className="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
             <div className="flex-1">
               <table
-                className="relative w-full text-sm lg:text-base rounded-full"
+                className="min-w-full w-full text-sm lg:text-base"
                 cellSpacing="0"
               >
                 <thead>
@@ -40,62 +40,80 @@ const history: React.FC<historyProps> = () => {
                     <th className="text-right">Date</th>
                   </tr>
                 </thead>
-                {data
-                  ? data.map((data, index) => {
-                      return (
-                        <>
-                          <tbody
-                            key={index}
-                            className="hover:my-12 hover:bg-black hover:text-white duration-150 transform hover:scale-110 cursor-pointer rounded-full"
-                          >
-                            <tr className="hover:z-10 rounded-full">
-                              <td className="hidden pb-4 md:table-cell">
-                                <a href="#">
-                                  <Image
-                                    src={data.img.hdUrl}
-                                    className="w-20 rounded"
-                                    alt={data.name}
-                                    width={100}
-                                    height={80}
-                                  />
-                                </a>
-                              </td>
-                              <td>
-                                <a href="#">
-                                  <p className="mb-2 md:ml-4">{data.name}</p>
-                                  <form action="" method="POST">
-                                    <button
-                                      type="submit"
-                                      className="text-gray-700 md:ml-4"
-                                    >
-                                      <small>(Remove item)</small>
-                                    </button>
-                                  </form>
-                                </a>
-                              </td>
-                              <td className="justify-center md:justify-end md:flex mt-6">
-                                <div className="w-20 h-10">
-                                  <div className="relative flex flex-row w-full h-8">
-                                    <span>{data.category}</span>
-                                  </div>
+                {data ? (
+                  data.map((data, index) => {
+                    return (
+                      <>
+                        <tbody
+                          key={index}
+                          className="hover:z-10 hover:py-12  duration-150 transform hover:scale-110 cursor-pointer hover:rounded-full"
+                        >
+                          <tr className="">
+                            <td className="hidden pb-4 md:table-cell">
+                              <a href="#">
+                                <Image
+                                  src={data.img.hdUrl}
+                                  className="w-20 rounded py-4"
+                                  alt={data.name}
+                                  width={100}
+                                  height={80}
+                                />
+                              </a>
+                            </td>
+                            <td>
+                              <a href="#">
+                                <p className="mb-2 md:ml-4">{data.name}</p>
+                                <form action="" method="POST">
+                                  <button
+                                    type="submit"
+                                    className="text-gray-700 md:ml-4"
+                                  >
+                                    <small>(Remove item)</small>
+                                  </button>
+                                </form>
+                              </a>
+                            </td>
+                            <td className="justify-center md:justify-end md:flex mt-6">
+                              <div className="w-20 h-10">
+                                <div className="relative flex flex-row w-full h-8">
+                                  <span>{data.category}</span>
                                 </div>
-                              </td>
-                              <td className="hidden text-right md:table-cell">
-                                <span className="text-sm lg:text-base font-medium">
-                                  {data.cost}
-                                </span>
-                              </td>
-                              <td className="text-right">
-                                <span className="text-sm lg:text-base font-medium px-4">
-                                  {data.createDate.substr(0, 10)}
-                                </span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </>
-                      )
-                    })
-                  : 'Loading...'}
+                              </div>
+                            </td>
+                            <td className="hidden text-right md:table-cell">
+                              <span className="text-sm lg:text-base font-medium">
+                                ${data.cost}
+                              </span>
+                            </td>
+                            <td className="text-right">
+                              <span className="text-sm lg:text-base font-medium px-4">
+                                {data.createDate.substr(0, 10)}
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </>
+                    )
+                  })
+                ) : (
+                  <>
+                    <div className="min-w-full w-full border border-gray-300 shadow rounded-md p-4 mx-auto">
+                      <div className="min-w-full w-full animate-pulse flex flex-row space-x-4">
+                        <div className="rounded-full bg-gray-300 h-10 w-10"></div>
+                        <div className="flex-1 space-y-6 py-1">
+                          <div className="h-2 bg-gray-300 rounded"></div>
+                          <div className="space-y-3">
+                            <div className="grid grid-cols-3 gap-4">
+                              <div className="h-2 bg-gray-300 rounded col-span-2"></div>
+                              <div className="h-2 bg-gray-300 rounded col-span-1"></div>
+                            </div>
+                            <div className="h-2 bg-gray-300 rounded"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </table>
               <hr className="pb-6 mt-6"></hr>
             </div>

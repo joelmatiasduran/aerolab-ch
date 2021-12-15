@@ -14,7 +14,9 @@ interface ProductsProps {
 
 const Products: React.FC<ProductsProps> = ({ user }) => {
   //Pages
+
   // const [pageIndex, setPageIndex] = useState(0)
+
   //Fetching data
   const { data: products, error } = useSWR('/api/products', fetcher)
   if (error) return <p>Error loading products, the sadness..</p>

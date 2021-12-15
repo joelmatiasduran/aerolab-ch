@@ -1,10 +1,5 @@
-import React from 'react'
 import Image from 'next/image'
 import AeroHero from '../assets/header-x1.png'
-
-// interface HeroProps {
-
-// }
 
 const Hero: React.FC = () => {
   return (
@@ -20,7 +15,7 @@ const Hero: React.FC = () => {
                 </h1>
                 <hr className="w-12 h-1 bg-orange-500 rounded-full mt-8"></hr>
 
-                <p className="w-full md:max-w-lg lg:max-w-xl text-gray-800 text-base leading-relaxed pt-16 md:pt-12 md:mt-8  font-semibold">
+                <p className="w-full md:max-w-lg lg:max-w-xl text-gray-800 text-base leading-relaxed pt-14 md:pt-8 lg:pt-16 md:mt-8  font-semibold">
                   Your ultimate e-commerce site. Carries all the information you
                   need while redeeming your favorite products
                 </p>

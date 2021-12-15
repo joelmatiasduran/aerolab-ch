@@ -17,6 +17,8 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
   //State For Modals
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const [isRedeeming, setIsRedeeming] = useState<boolean>(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isSuccessful, setIsSuccessful] = useState<string | null>('')
 
   const productId = products._id
   const handleRedeem = async (productId: string): Promise<void> => {
@@ -32,8 +34,9 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
       }),
     })
     setIsRedeeming(false)
-    // console.log(response)
-    response
+
+    setIsSuccessful(response.status === 200 ? 'success' : 'error')
+
     mutate('/api/user/me', { ...products, points: userCash - products.cost })
     mutate('/api/user/history')
   }
@@ -64,11 +67,6 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
             className={`object-contain hover:object-fit transform duration-150 ${
               isHovered ? 'transform scale-110' : ''
             }`}
-            // className={
-            //   isHovered
-            //     ? 'object-contain hover:object-fit transform scale-110 duration-150'
-            //     : 'object-contain hover:object-fit transform duration-150'
-            // }
           />
           <h3 className="text-lg text-gray-400">{products.category}</h3>
           <h2 className="text-xl font-medium">{products.name}</h2>
@@ -77,7 +75,9 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
             {products.cost}
           </h2>
           {isRedeeming ? (
-            <h6 className="text-black">Procesing..</h6>
+            <>
+              <h6 className="text-black">Procesing..</h6>
+            </>
           ) : (
             <>
               {userCash >= products.cost ? (
