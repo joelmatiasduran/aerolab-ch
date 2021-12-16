@@ -13,6 +13,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const [navfull, setNavfull] = useState<false | true>(true)
+  const [showpoints, setShowPoints] = useState<false | true>(false)
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-indigo-700 text-white p-10">
@@ -83,6 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               scale: 1.1,
             }}
             whileTap={{ scale: 0.9 }}
+            onClick={() => setShowPoints(!showpoints)}
             className="flex flex-row items-center justify-center py-4 border hover:bg-white hover:text-yellow-500 rounded-lg"
           >
             <a href="#" className="text-3xl leading-none px-2 lg:mt-0">
@@ -94,7 +96,16 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           </motion.div>
         </div>
       </nav>
-      <AddPoints points={user.points} user={user} />
+      {showpoints ? (
+        <motion.div
+          initial={{ x: '-250vw' }}
+          animate={showpoints ? { x: 0 } : { x: '-250vw' }}
+        >
+          <AddPoints points={user.points} user={user} />
+        </motion.div>
+      ) : (
+        ''
+      )}
     </>
   )
 }

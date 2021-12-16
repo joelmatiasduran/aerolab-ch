@@ -16,11 +16,14 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
   //State For Modals
   const [isHovered, setIsHovered] = useState<boolean>(false)
+
   const [isRedeeming, setIsRedeeming] = useState<boolean>(false)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isSuccessful, setIsSuccessful] = useState<string | null>('')
 
+  // Small Refactor
   const productId = products._id
+
   const handleRedeem = async (productId: string): Promise<void> => {
     setIsRedeeming(true)
     const response = await fetch('/api/redeem', {

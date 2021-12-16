@@ -13,26 +13,25 @@ interface ProductsProps {
 }
 
 const Products: React.FC<ProductsProps> = ({ user }) => {
-  //Pages
-
-  // const [pageIndex, setPageIndex] = useState(0)
-
   //Fetching data
-  const { data: products, error } = useSWR('/api/products', fetcher)
-  if (error) return <p>Error loading products, the sadness..</p>
+  const { data: products, error } = useSWR('/api/products', fetcher, {
+    refreshInterval: 1000,
+  })
+  if (error) return <p>Error loading products, the sadness.. :(</p>
 
   //Refactor
   const userCash = user.points
 
   //Sorting
-  const [list, setList] = useState<[] | null | any>(products)
+  const [isFiltering, setIsFiltering] = useState<false | true>(false)
+  const [list, setList] = useState<[] | null>(products)
 
   //Handlers
-  const HandleSort = () => {
+  const handleSortLow = () => {
     setList(
       products.sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
     )
-    // tell all SWRs with this key to revalidate
+    setIsFiltering(!isFiltering)
   }
 
   return (
@@ -51,17 +50,15 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
           Most Recent
         </motion.button>
         <motion.button
+          onClick={handleSortLow}
+          onDoubleClick={() => setIsFiltering(!isFiltering)}
           initial={{ x: '-250vw' }}
           animate={{ x: 0 }}
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900',
             scale: 1.1,
           }}
-          whileTap={{ scale: 0.9 }}
           className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
-          onClick={() => {
-            HandleSort
-          }}
         >
           Lower Price
         </motion.button>
@@ -72,7 +69,6 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
             boxShadow: '0px 0px 40px #ffd900',
             scale: 1.1,
           }}
-          whileTap={{ scale: 0.9 }}
           className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
           onClick={() =>
             setList(
@@ -98,15 +94,17 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
         </motion.button>
       </div>
 
-      <div
+      <motion.div
+        initial={!isFiltering ? { x: '-250vw' } : { x: 0 }}
+        animate={isFiltering ? { x: 0 } : { x: '-250vw' }}
         className={
           products
             ? 'grid grid-cols-1d-cols-3 xl:grid-cols-4 gap-6 bg-white'
             : 'w-full'
         }
       >
-        {products ? (
-          products
+        {list ? (
+          list
             // .sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
             .map((products, index) => {
               return (
@@ -127,7 +125,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
         ) : (
           <LoadingProduct key={0} />
         )}
-      </div>
+      </motion.div>
     </>
   )
 }

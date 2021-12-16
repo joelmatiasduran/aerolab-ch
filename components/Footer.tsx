@@ -155,7 +155,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://joelmatias.netlify.app/"
                   rel="noopener noreferrer"
-                  className="text-white ml-1 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
+                  className="text-white ml-1 hover:text-red-400 transform hover:scale-150 duration-150 hover:-translate-y-2"
                   target="_blank"
                 >
                   @Joel
@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
               <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                 <a
                   href="https://twitter.com/aerolab"
-                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
+                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-150 hover:-translate-y-2"
                 >
                   <svg
                     fill="currentColor"
@@ -180,7 +180,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.instagram.com/aerolab/"
                   target="_blank"
-                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
+                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-150 hover:-translate-y-2"
                   rel="noreferrer"
                 >
                   <svg
@@ -206,7 +206,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.linkedin.com/company/aerolab-digital/"
                   target="_blank"
-                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-300 hover:-translate-y-2"
+                  className="ml-3 text-gray-200 hover:text-red-400 transform hover:scale-150 duration-150 hover:-translate-y-2"
                   rel="noreferrer"
                 >
                   <svg
