@@ -23,30 +23,25 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
 
   const [isFiltering, setIsFiltering] = useState<string>('')
   //Sorting
-  const [list, setList] = useState<[] | null>(products)
+  const [list, setList] = useState<[] | null | undefined>([])
+
   const [isSorting, setIsSorting] = useState<boolean>(false)
 
   //Handlers
   const handleSortLow = () => {
     setIsFiltering('low')
-    setTimeout(() => {
-      setList(
-        products.sort((a, b) =>
-          a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0
-        )
-      )
-    }, 300)
+
+    setList(
+      products.sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
+    )
   }
 
   const handleSortHigh = () => {
     setIsFiltering('high')
-    setTimeout(() => {
-      setList(
-        products.sort((b, a) =>
-          a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0
-        )
-      )
-    }, 300)
+
+    setList(
+      products.sort((b, a) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
+    )
   }
 
   const handleSortRecent = () => {
@@ -64,14 +59,6 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
       setList(products)
     }, 300)
   }
-
-  //Default Sort
-  async function doItHere() {
-    await products
-    setList(products)
-  }
-
-  doItHere()
 
   //Animate Sorting
   useEffect(() => {
@@ -203,8 +190,8 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
             : 'w-full'
         }
       >
-        {list ? (
-          list.map((products, index) => {
+        {products ? (
+          products.map((products, index) => {
             return (
               <>
                 {list ? (
