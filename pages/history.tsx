@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import useSWR from 'swr'
 import { fetcher } from '../utils/functions'
 import Image from 'next/image'
+import HistoryLoader from '../components/HistoryLoader'
 
 interface historyProps {
   name: string
@@ -25,7 +26,7 @@ const history: React.FC<historyProps> = () => {
                 cellSpacing="0"
               >
                 <thead>
-                  <tr className="h-12 uppercase">
+                  <tr className="w-full h-12 uppercase">
                     <th className="hidden md:table-cell"></th>
                     <th className="text-left">Product</th>
                     <th className="lg:text-right text-left pl-5 lg:pl-0">
@@ -41,7 +42,7 @@ const history: React.FC<historyProps> = () => {
                   </tr>
                 </thead>
                 {data ? (
-                  data.map((data, index) => {
+                  data.reverse().map((data, index) => {
                     return (
                       <>
                         <tbody
@@ -97,21 +98,25 @@ const history: React.FC<historyProps> = () => {
                   })
                 ) : (
                   <>
-                    <div className="min-w-full w-full border border-gray-300 shadow rounded-md p-4 mx-auto">
-                      <div className="min-w-full w-full animate-pulse flex flex-row space-x-4">
-                        <div className="rounded-full bg-gray-300 h-10 w-10"></div>
-                        <div className="flex-1 space-y-6 py-1">
-                          <div className="h-2 bg-gray-300 rounded"></div>
-                          <div className="space-y-3">
-                            <div className="grid grid-cols-3 gap-4">
-                              <div className="h-2 bg-gray-300 rounded col-span-2"></div>
-                              <div className="h-2 bg-gray-300 rounded col-span-1"></div>
-                            </div>
-                            <div className="h-2 bg-gray-300 rounded"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <tbody className="hover:z-10 hover:py-12  duration-150 transform hover:scale-110 cursor-pointer hover:rounded-full">
+                      <tr className="w-full min-w-full">
+                        <td className="hidden md:table-cell">
+                          <HistoryLoader />
+                        </td>
+                        <td>
+                          <HistoryLoader />
+                        </td>
+                        <td className="justify-center md:justify-end md:flex">
+                          <HistoryLoader />
+                        </td>
+                        <td className="hidden text-right md:table-cell">
+                          <HistoryLoader />
+                        </td>
+                        <td className="text-right">
+                          <HistoryLoader />
+                        </td>
+                      </tr>
+                    </tbody>
                   </>
                 )}
               </table>
