@@ -93,7 +93,18 @@ const Product: React.FC<ProductProps> = ({
               >
                 <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
                   <span className="text-lg pl-4">
-                    {isRedeeming ? 'Processing...' : 'Redeem now!'}
+                    {isRedeeming ? (
+                      <span>Processing...</span> &&
+                      isSuccessful === 'success' ? (
+                        <span>Success!!</span>
+                      ) : isSuccessful === 'error' ? (
+                        <span>Error</span>
+                      ) : (
+                        isSuccessful
+                      )
+                    ) : (
+                      'Redeem Now'
+                    )}
                   </span>
                   <div className="flex flex-row items-center justify-center">
                     {isRedeeming ? (
