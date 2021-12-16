@@ -1,4 +1,4 @@
-const HistoryLoader: React.FC<HistoryLoaderProps> = () => {
+const HistoryLoader: React.FC = () => {
   return (
     <>
       <div className="min-w-full w-full border border-gray-300 shadow rounded-md p-4 mx-auto">
