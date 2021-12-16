@@ -15,24 +15,15 @@ interface ProductsProps {
 
 const Products: React.FC<ProductsProps> = ({ user }) => {
   //Fetching data
-  const { data: products, error } = useSWR('/api/products', fetcher, {
-    refreshInterval: 1000,
-  })
+  const { data: products, error } = useSWR('/api/products', fetcher)
   if (error) return <p>Error loading products, the sadness.. :(</p>
 
   //Refactor
   const userCash = user.points
 
-  //Default Sort
-
-  const recentProducts = products
-    ? //Insert a way to put the recent ones based on date by the
-      products
-    : false
-
   const [isFiltering, setIsFiltering] = useState<string>('')
   //Sorting
-  const [list, setList] = useState<[] | null>(products || recentProducts)
+  const [list, setList] = useState<[] | null>(products)
   const [isSorting, setIsSorting] = useState<boolean>(false)
 
   //Handlers
@@ -60,19 +51,22 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
 
   const handleSortRecent = () => {
     setIsFiltering('recent')
-    let i = -1
-    i > 0
-    i--
-    const j = Math.floor(Math.random() * (i + 1))
-    const temp = products[i]
-    products[i] = products[j]
-    products[j] = temp
+
+    for (let i = products.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      const temp = products[i]
+      products[i] = products[j]
+      products[j] = temp
+    }
 
     setTimeout(() => {
       //Insert a way to put the recent ones based on date by the
       setList(products)
     }, 300)
   }
+
+  //Default Sort
+  setTimeout(() => handleSortRecent(), 5000)
 
   //Animate Sorting
   useEffect(() => {
