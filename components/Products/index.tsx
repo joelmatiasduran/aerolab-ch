@@ -66,7 +66,18 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
   }
 
   //Default Sort
-  setTimeout(() => handleSortRecent(), 5000)
+  async function doItHere() {
+    await products
+    for (let i = products.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      const temp = products[i]
+      products[i] = products[j]
+      products[j] = temp
+    }
+    setList(products)
+  }
+
+  doItHere()
 
   //Animate Sorting
   useEffect(() => {
