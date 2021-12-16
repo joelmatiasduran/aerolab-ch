@@ -3,7 +3,6 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import Head from 'next/head'
 import { fetcher } from '../utils/functions'
-// import AddPoints from './AddPoints'
 
 interface Props {
   children?: React.ReactNode

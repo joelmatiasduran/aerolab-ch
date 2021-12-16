@@ -31,7 +31,7 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
   }
   return (
     <>
-      <div className="flex flex-row bg-white p-6 text-white">
+      <div className="flex flex-row bg-pink-600 p-6 text-white">
         <button
           onClick={() => handleAdd(1000)}
           className="text-2xl px-6 py-4 text-black bg-aero-blue hover:bg-black hover:text-white font-bold  rounded-xl cursor-pointer duration-300  mx-4"

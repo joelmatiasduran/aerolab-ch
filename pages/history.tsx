@@ -51,28 +51,24 @@ const history: React.FC<historyProps> = () => {
                         >
                           <tr className="">
                             <td className="hidden pb-4 md:table-cell">
-                              <a href="#">
-                                <Image
-                                  src={data.img.hdUrl}
-                                  className="w-20 rounded py-4"
-                                  alt={data.name}
-                                  width={100}
-                                  height={80}
-                                />
-                              </a>
+                              <Image
+                                src={data.img.hdUrl}
+                                className="w-20 rounded py-4"
+                                alt={data.name}
+                                width={100}
+                                height={80}
+                              />
                             </td>
                             <td>
-                              <a href="#">
-                                <p className="mb-2 md:ml-4">{data.name}</p>
-                                <form action="" method="POST">
-                                  <button
-                                    type="submit"
-                                    className="text-gray-700 md:ml-4"
-                                  >
-                                    <small>(Remove item)</small>
-                                  </button>
-                                </form>
-                              </a>
+                              <p className="mb-2 md:ml-4">{data.name}</p>
+                              <form action="" method="POST">
+                                <button
+                                  type="submit"
+                                  className="text-gray-700 md:ml-4"
+                                >
+                                  <small>(Remove item)</small>
+                                </button>
+                              </form>
                             </td>
                             <td className="justify-center md:justify-end md:flex mt-6">
                               <div className="w-20 h-10">

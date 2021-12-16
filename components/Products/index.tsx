@@ -4,7 +4,8 @@ import { fetcher } from '../../utils/functions'
 import Product from './Product'
 import { motion } from 'framer-motion'
 import { UserTypes } from '../../interfaces/AeroTypes'
-import LoadingProduct from './LoadingProduct'
+import ProductLoader from './ProductLoader'
+import Loading from '../Loading'
 
 interface ProductsProps {
   name: string
@@ -31,7 +32,8 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
     setList(
       products.sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
     )
-    setIsFiltering(!isFiltering)
+    setIsFiltering(true)
+    setIsFiltering(false)
   }
 
   return (
@@ -95,35 +97,33 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
       </div>
 
       <motion.div
-        initial={!isFiltering ? { x: '-250vw' } : { x: 0 }}
-        animate={isFiltering ? { x: 0 } : { x: '-250vw' }}
+        initial={{ x: '-250vw' }}
+        animate={!isFiltering ? { x: 0 } : { x: '-250vw' }}
         className={
-          products
+          list
             ? 'grid grid-cols-1d-cols-3 xl:grid-cols-4 gap-6 bg-white'
             : 'w-full'
         }
       >
         {list ? (
-          list
-            // .sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
-            .map((products, index) => {
-              return (
-                <>
-                  {list ? (
-                    <Product
-                      key={index}
-                      products={products}
-                      userCash={userCash}
-                      index={index}
-                    />
-                  ) : (
-                    <LoadingProduct key={index} />
-                  )}
-                </>
-              )
-            })
+          list.map((products, index) => {
+            return (
+              <>
+                {list ? (
+                  <Product
+                    key={index}
+                    products={products}
+                    userCash={userCash}
+                    index={index}
+                  />
+                ) : (
+                  <ProductLoader key={index} />
+                )}
+              </>
+            )
+          })
         ) : (
-          <LoadingProduct key={0} />
+          <Loading />
         )}
       </motion.div>
     </>

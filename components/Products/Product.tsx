@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { mutate } from 'swr'
 import { motion } from 'framer-motion'
+import { ProductsTypes } from '../../interfaces/AeroTypes'
 import Image from 'next/image'
 import AeroCoin from '../../assets/icons/coin.svg'
 import AeroBuy from '../../assets/icons/buy-white.svg'
-import { ProductsTypes } from '../../interfaces/AeroTypes'
-import LoadingProduct from './LoadingProduct'
+
+import ProductLoader from './ProductLoader'
 
 interface ProductProps {
   products: ProductsTypes
@@ -77,51 +78,54 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
             ${''}
             {products.cost}
           </h2>
-          {isRedeeming ? (
-            <>
-              <h6 className="text-black">Procesing..</h6>
-            </>
-          ) : (
-            <>
-              {userCash >= products.cost ? (
-                <button
-                  className="flex flex-col-reverse pt-6 w-full min-w-full"
-                  onClick={() => handleRedeem(productId)}
-                >
-                  <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
-                    <button className="text-lg pl-4">Redeem now!</button>
-                    <div className="flex flex-row items-center justify-center">
-                      <h3 className="text-lg ml-4">{products.cost}</h3>
-                      <Image
-                        src={AeroCoin}
-                        alt="Coins Icon"
-                        width={30}
-                        height={30}
-                      />
-                    </div>
+
+          <>
+            {userCash >= products.cost ? (
+              <button
+                className="flex flex-col-reverse pt-6 w-full min-w-full"
+                onClick={() => handleRedeem(productId)}
+              >
+                <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
+                  <span className="text-lg pl-4">
+                    {isRedeeming ? 'Processing...' : 'Redeem now!'}
+                  </span>
+                  <div className="flex flex-row items-center justify-center">
+                    {isRedeeming ? (
+                      ''
+                    ) : (
+                      <>
+                        <h3 className="text-lg ml-4">{products.cost}</h3>
+                        <Image
+                          src={AeroCoin}
+                          alt="Coins Icon"
+                          width={30}
+                          height={30}
+                        />
+                      </>
+                    )}
                   </div>
-                </button>
-              ) : (
-                <button className="flex flex-col-reverse pt-6 w-full min-w-full">
-                  <div className="flex flex-row justify-between w-full min-w-full py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg duration-300">
-                    <button className="text-lg pl-4">You need</button>
-                    <div className="flex flex-row items-center justify-center">
-                      <h3 className="text-lg"> +{products.cost - userCash}</h3>
-                      <Image
-                        src={AeroCoin}
-                        alt="Coins Icon"
-                        width={30}
-                        height={30}
-                      />
-                    </div>
+                </div>
+              </button>
+            ) : (
+              <button className="flex flex-col-reverse pt-6 w-full min-w-full">
+                <div className="flex flex-row justify-between w-full min-w-full py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg duration-300">
+                  <button className="text-lg pl-4">You need</button>
+                  <div className="flex flex-row items-center justify-center">
+                    <h3 className="text-lg"> +{products.cost - userCash}</h3>
+                    <Image
+                      src={AeroCoin}
+                      alt="Coins Icon"
+                      width={30}
+                      height={30}
+                    />
                   </div>
-                </button>
-              )}
-            </>
-          )}
+                </div>
+              </button>
+            )}
+          </>
         </motion.div>
       ) : (
-        <LoadingProduct key={index} />
+        <ProductLoader key={index} />
       )}
     </>
   )

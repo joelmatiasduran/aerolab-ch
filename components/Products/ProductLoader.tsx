@@ -1,10 +1,8 @@
-import React from 'react'
-
-interface LoadingProductProps {
+interface ProductLoaderProps {
   key: number
 }
 
-const LoadingProduct: React.FC<LoadingProductProps> = () => {
+const ProductLoader: React.FC<ProductLoaderProps> = () => {
   return (
     <>
       <div className="flex items-center justify-center">
@@ -21,4 +19,4 @@ const LoadingProduct: React.FC<LoadingProductProps> = () => {
     </>
   )
 }
-export default LoadingProduct
+export default ProductLoader
