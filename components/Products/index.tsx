@@ -23,9 +23,16 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
   //Refactor
   const userCash = user.points
 
-  //Sorting
+  //Default Sort
+
+  const recentProducts = products
+    ? //Insert a way to put the recent ones based on date by the
+      products
+    : false
+
   const [isFiltering, setIsFiltering] = useState<string>('')
-  const [list, setList] = useState<[] | null>(products)
+  //Sorting
+  const [list, setList] = useState<[] | null>(products || recentProducts)
   const [isSorting, setIsSorting] = useState<boolean>(false)
 
   //Handlers
@@ -48,6 +55,22 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
           a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0
         )
       )
+    }, 300)
+  }
+
+  const handleSortRecent = () => {
+    setIsFiltering('recent')
+    let i = -1
+    i > 0
+    i--
+    const j = Math.floor(Math.random() * (i + 1))
+    const temp = products[i]
+    products[i] = products[j]
+    products[j] = temp
+
+    setTimeout(() => {
+      //Insert a way to put the recent ones based on date by the
+      setList(products)
     }, 300)
   }
 
@@ -94,7 +117,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
                     scale: 1.1,
                   }
             }
-            whileTap={{ scale: 0.9 }}
+            onClick={handleSortRecent}
             className="p-4 m-6 rounded-xl bg-transparent hover:bg-aero-blue focus:bg-aero-blue hover:border-transparent text-black border-2 border-black focus:border-transparent"
           >
             Most Recent
