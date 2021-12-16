@@ -64,53 +64,108 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
       {products ? (
         <div className="flex flex-col md:flex-row w-full p-6 pl-0 m-6  pt-0 mt-0 text-white">
           {' '}
+          <span className="p-4 m-6 rounded-xl text-black">Sort by :</span>
           <motion.button
             initial={{ x: '-250vw' }}
-            animate={{ x: 0 }}
-            whileHover={{
-              boxShadow: '0px 0px 40px #ffd900',
-              scale: 1.1,
-            }}
+            animate={
+              isFiltering !== 'recent'
+                ? {
+                    x: 0,
+                    backgroundColor: '#ffffff',
+                    border: '2px solid black',
+                  }
+                : {
+                    x: 0,
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    border: 'transparent',
+                    backgroundColor: '#18dcfc',
+                  }
+            }
+            whileHover={
+              isFiltering !== 'recent'
+                ? {
+                    scale: 1.1,
+                    backgroundColor: '#18dcfc',
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    border: 'transparent',
+                  }
+                : {
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    scale: 1.1,
+                  }
+            }
             whileTap={{ scale: 0.9 }}
-            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-aero-blue focus:bg-aero-blue hover:border-transparent text-black border-2 border-black focus:border-transparent"
           >
             Most Recent
           </motion.button>
           <motion.button
             onClick={handleSortLow}
             initial={{ x: '-250vw' }}
-            animate={{ x: 0 }}
-            whileHover={{
-              boxShadow: '0px 0px 40px #ffd900',
-              scale: 1.1,
-            }}
-            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+            animate={
+              isFiltering !== 'low'
+                ? {
+                    x: 0,
+                    backgroundColor: '#ffffff',
+                    border: '2px solid black',
+                  }
+                : {
+                    x: 0,
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    border: 'transparent',
+                    backgroundColor: '#18dcfc',
+                  }
+            }
+            whileHover={
+              isFiltering !== 'low'
+                ? {
+                    scale: 1.1,
+                    backgroundColor: '#18dcfc',
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    border: 'transparent',
+                  }
+                : {
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    scale: 1.1,
+                  }
+            }
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-aero-blue hover:border-transparent text-black border-2 border-black focus:border-transparent"
           >
             Lower Price
           </motion.button>
           <motion.button
             initial={{ x: '-250vw' }}
-            animate={{ x: 0 }}
-            whileHover={{
-              boxShadow: '0px 0px 40px #ffd900',
-              scale: 1.1,
-            }}
-            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+            animate={
+              isFiltering !== 'high'
+                ? {
+                    x: 0,
+                    backgroundColor: '#ffffff',
+                    border: '2px solid black',
+                  }
+                : {
+                    x: 0,
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    border: 'transparent',
+                    backgroundColor: '#18dcfc',
+                  }
+            }
+            whileHover={
+              isFiltering !== 'high'
+                ? {
+                    scale: 1.1,
+                    backgroundColor: '#18dcfc',
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    border: 'transparent',
+                  }
+                : {
+                    boxShadow: '0px 0px 40px #00ffd5',
+                    scale: 1.1,
+                  }
+            }
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-aero-blue focus:bg-aero-blue hover:border-transparent text-black border-2 border-black focus:border-transparent"
             onClick={handleSortHigh}
           >
             Higher Price
-          </motion.button>
-          <motion.button
-            initial={{ x: '-250vw' }}
-            animate={{ x: 0 }}
-            whileHover={{
-              boxShadow: '0px 0px 40px #ffd900',
-              scale: 1.1,
-            }}
-            whileTap={{ scale: 0.9 }}
-            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
-          >
-            A-Z
           </motion.button>
         </div>
       ) : (
@@ -118,7 +173,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
       )}
 
       <motion.div
-        initial={{ x: '-250vw', backgroundColor: 'blue' }}
+        initial={{ x: '-250vw' }}
         animate={!isSorting ? { x: 0 } : { x: '-250vw' }}
         className={
           list

@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         </div>
         <div className="block lg:hidden">
           <button
-            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-b-2 duration-150 border-transparent hover:hover:text-white hover:border-white"
             onClick={() => setNavfull(!navfull)}
           >
             <svg
@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               <a
                 href="#responsive-header"
                 className="block mt-4 lg:inline-block
-                lg:mt-0 text-teal-200 text-base hover:text-white mr-4"
+                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4"
               >
                 {' '}
                 HOME
@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <a
               href="https://github.com/joelmatiasduran/aerolab-ch"
               target="_blank"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 text-base hover:text-white mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4"
               rel="noreferrer"
             >
               CODE
@@ -73,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
 
             <a
               href="/history"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 text-base hover:text-white"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white"
             >
               HISTORY
             </a>

@@ -12,9 +12,15 @@ interface ProductProps {
   products: ProductsTypes
   index: number
   userCash: number
+  key: number
 }
 
-const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
+const Product: React.FC<ProductProps> = ({
+  products,
+  index,
+  userCash,
+  key,
+}) => {
   //State For Modals
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
@@ -54,7 +60,7 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900 ',
           }}
-          key={index}
+          key={key}
           onMouseOver={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 p-6 rounded-xl cursor-pointer"
