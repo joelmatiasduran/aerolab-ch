@@ -55,27 +55,27 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               <a
                 href="#responsive-header"
                 className="block mt-4 lg:inline-block
-                lg:mt-0 text-teal-200 text-xl hover:text-white mr-4"
+                lg:mt-0 text-teal-200 text-base hover:text-white mr-4"
               >
                 {' '}
-                Home
+                HOME
               </a>
             </Link>
 
             <a
               href="https://github.com/joelmatiasduran/aerolab-ch"
               target="_blank"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 text-xl hover:text-white mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 text-base hover:text-white mr-4"
               rel="noreferrer"
             >
-              Code
+              CODE
             </a>
 
             <a
               href="/history"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 text-xl hover:text-white"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 text-base hover:text-white"
             >
-              History
+              HISTORY
             </a>
           </div>
           <motion.div

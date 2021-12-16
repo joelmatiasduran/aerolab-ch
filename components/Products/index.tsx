@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { fetcher } from '../../utils/functions'
 import Product from './Product'
@@ -24,81 +24,102 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
   const userCash = user.points
 
   //Sorting
-  const [isFiltering, setIsFiltering] = useState<false | true>(false)
+  const [isFiltering, setIsFiltering] = useState<string>('')
   const [list, setList] = useState<[] | null>(products)
+  const [isSorting, setIsSorting] = useState<boolean>(false)
 
   //Handlers
   const handleSortLow = () => {
-    setList(
-      products.sort((a, b) => (a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0))
-    )
-    setIsFiltering(true)
-    setIsFiltering(false)
+    setIsFiltering('low')
+    setTimeout(() => {
+      setList(
+        products.sort((a, b) =>
+          a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0
+        )
+      )
+    }, 300)
   }
+
+  const handleSortHigh = () => {
+    setIsFiltering('high')
+    setTimeout(() => {
+      setList(
+        products.sort((b, a) =>
+          a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0
+        )
+      )
+    }, 300)
+  }
+
+  //Animate Sorting
+  useEffect(() => {
+    setIsSorting(true)
+    setTimeout(() => {
+      setIsSorting(false)
+    }, 1)
+  }, [isFiltering])
 
   return (
     <>
-      <div className="flex flex-col md:flex-row w-full p-6 pl-0 m-6  pt-0 mt-0 text-white">
-        <motion.button
-          initial={{ x: '-250vw' }}
-          animate={{ x: 0 }}
-          whileHover={{
-            boxShadow: '0px 0px 40px #ffd900',
-            scale: 1.1,
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
-        >
-          Most Recent
-        </motion.button>
-        <motion.button
-          onClick={handleSortLow}
-          onDoubleClick={() => setIsFiltering(!isFiltering)}
-          initial={{ x: '-250vw' }}
-          animate={{ x: 0 }}
-          whileHover={{
-            boxShadow: '0px 0px 40px #ffd900',
-            scale: 1.1,
-          }}
-          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
-        >
-          Lower Price
-        </motion.button>
-        <motion.button
-          initial={{ x: '-250vw' }}
-          animate={{ x: 0 }}
-          whileHover={{
-            boxShadow: '0px 0px 40px #ffd900',
-            scale: 1.1,
-          }}
-          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
-          onClick={() =>
-            setList(
-              products.sort((b, a) =>
-                a.cost > b.cost ? 1 : a.cost < b.cost ? -1 : 0
-              )
-            )
-          }
-        >
-          Higher Price
-        </motion.button>
-        <motion.button
-          initial={{ x: '-250vw' }}
-          animate={{ x: 0 }}
-          whileHover={{
-            boxShadow: '0px 0px 40px #ffd900',
-            scale: 1.1,
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
-        >
-          A-Z
-        </motion.button>
-      </div>
+      {products ? (
+        <div className="flex flex-col md:flex-row w-full p-6 pl-0 m-6  pt-0 mt-0 text-white">
+          {' '}
+          <motion.button
+            initial={{ x: '-250vw' }}
+            animate={{ x: 0 }}
+            whileHover={{
+              boxShadow: '0px 0px 40px #ffd900',
+              scale: 1.1,
+            }}
+            whileTap={{ scale: 0.9 }}
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          >
+            Most Recent
+          </motion.button>
+          <motion.button
+            onClick={handleSortLow}
+            initial={{ x: '-250vw' }}
+            animate={{ x: 0 }}
+            whileHover={{
+              boxShadow: '0px 0px 40px #ffd900',
+              scale: 1.1,
+            }}
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          >
+            Lower Price
+          </motion.button>
+          <motion.button
+            initial={{ x: '-250vw' }}
+            animate={{ x: 0 }}
+            whileHover={{
+              boxShadow: '0px 0px 40px #ffd900',
+              scale: 1.1,
+            }}
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+            onClick={handleSortHigh}
+          >
+            Higher Price
+          </motion.button>
+          <motion.button
+            initial={{ x: '-250vw' }}
+            animate={{ x: 0 }}
+            whileHover={{
+              boxShadow: '0px 0px 40px #ffd900',
+              scale: 1.1,
+            }}
+            whileTap={{ scale: 0.9 }}
+            className="p-4 m-6 rounded-xl bg-transparent hover:bg-black text-black border-2 border-black hover:text-white"
+          >
+            A-Z
+          </motion.button>
+        </div>
+      ) : (
+        ''
+      )}
 
       <motion.div
-        initial={{ x: '-250vw' }}
-        animate={!isFiltering ? { x: 0 } : { x: '-250vw' }}
+        initial={{ x: '-250vw', backgroundColor: 'blue' }}
+        animate={!isSorting ? { x: 0 } : { x: '-250vw' }}
         className={
           list
             ? 'grid grid-cols-1d-cols-3 xl:grid-cols-4 gap-6 bg-white'

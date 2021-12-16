@@ -109,7 +109,7 @@ const Product: React.FC<ProductProps> = ({ products, index, userCash }) => {
             ) : (
               <button className="flex flex-col-reverse pt-6 w-full min-w-full">
                 <div className="flex flex-row justify-between w-full min-w-full py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg duration-300">
-                  <button className="text-lg pl-4">You need</button>
+                  <span className="text-lg pl-4">You need</span>
                   <div className="flex flex-row items-center justify-center">
                     <h3 className="text-lg"> +{products.cost - userCash}</h3>
                     <Image
