@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import { fetcher } from '../../utils/functions'
 import Product from './Product'
 import { motion } from 'framer-motion'
-import { UserTypes, ProductsTypes } from '../../interfaces/AeroTypes'
+import { UserTypes } from '../../interfaces/AeroTypes'
 import ProductLoader from './ProductLoader'
 import Loading from '../Loading'
 
@@ -11,7 +11,6 @@ interface ProductsProps {
   name: string
   price: number
   user: UserTypes
-  products: ProductsTypes
 }
 
 const Products: React.FC<ProductsProps> = ({ user }) => {
