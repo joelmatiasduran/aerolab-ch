@@ -173,8 +173,8 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
       )}
 
       <motion.div
-        initial={{ x: '-250vw' }}
-        animate={!isSorting ? { x: 0 } : { x: '-250vw' }}
+        initial={{ y: '250vh' }}
+        animate={!isSorting ? { y: 0 } : { y: '250vh' }}
         className={
           list
             ? 'grid grid-cols-1d-cols-3 xl:grid-cols-4 gap-6 bg-white'
