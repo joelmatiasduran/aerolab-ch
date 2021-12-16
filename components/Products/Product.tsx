@@ -21,9 +21,9 @@ const Product: React.FC<ProductProps> = ({
   userCash,
   key,
 }) => {
-  //State For Modals
+  //State For Hover Effects
   const [isHovered, setIsHovered] = useState<boolean>(false)
-
+  //State For Modals
   const [isRedeeming, setIsRedeeming] = useState<boolean>(false)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isSuccessful, setIsSuccessful] = useState<string | null>('')
@@ -100,7 +100,7 @@ const Product: React.FC<ProductProps> = ({
                       ) : isSuccessful === 'error' ? (
                         <span>Error</span>
                       ) : (
-                        isSuccessful
+                        'Redeem Now'
                       )
                     ) : (
                       'Redeem Now'

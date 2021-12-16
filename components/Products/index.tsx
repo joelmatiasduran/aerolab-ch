@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import { fetcher } from '../../utils/functions'
 import Product from './Product'
 import { motion } from 'framer-motion'
-import { UserTypes } from '../../interfaces/AeroTypes'
+import { UserTypes, ProductsTypes } from '../../interfaces/AeroTypes'
 import ProductLoader from './ProductLoader'
 import Loading from '../Loading'
 
@@ -11,6 +11,7 @@ interface ProductsProps {
   name: string
   price: number
   user: UserTypes
+  products: ProductsTypes
 }
 
 const Products: React.FC<ProductsProps> = ({ user }) => {
@@ -185,7 +186,7 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
         initial={{ y: '250vh' }}
         animate={!isSorting ? { y: 0 } : { y: '250vh' }}
         className={
-          list
+          list || products
             ? 'grid grid-cols-1d-cols-3 xl:grid-cols-4 gap-6 bg-white'
             : 'w-full'
         }

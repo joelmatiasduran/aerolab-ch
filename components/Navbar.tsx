@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         </div>
         <div className="block lg:hidden">
           <button
-            className="flex items-center px-3 py-2 border rounded text-teal-200 border-b-2 duration-150 border-transparent hover:hover:text-white hover:border-white"
+            className="flex  items-center px-3 py-2 border rounded text-teal-200 border-b-2 duration-150 border-transparent hover:hover:text-white hover:border-white"
             onClick={() => setNavfull(!navfull)}
           >
             <svg
@@ -40,17 +40,16 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
-            {navfull ? 'active' : 'unactive'}
           </button>
         </div>
         <div
           className={
             navfull
-              ? 'transform translate-x-0 w-full h-full block flex-grow lg:flex lg:items-center lg:w-auto'
-              : 'absolute transform -translate-x-full duration-300'
+              ? 'items-center justify-center transform w-full h-full block flex-grow lg:flex lg:items-center lg:w-auto'
+              : 'absolute transform h-0 duration-300'
           }
         >
-          <div className="text-sm lg:flex-grow">
+          <div className={navfull ? 'text-sm lg:flex-grow' : 'hidden'}>
             <Link href="/">
               <a
                 href="#responsive-header"
@@ -78,6 +77,23 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               HISTORY
             </a>
           </div>
+          {user.points === 0 ? (
+            ''
+          ) : (
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: '#18dcfc',
+                boxShadow: '0px 0px 40px #00ffd5',
+                border: 'transparent',
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="flex  md:flex-row flex-row-reverse justify-center items-center text-2xl border-white bg-pink-600 border-2 rounded-full p-6 h-10 w-10 mr-4"
+              onClick={() => setShowPoints(!showpoints)}
+            >
+              +
+            </motion.button>
+          )}
           <motion.div
             whileHover={{
               boxShadow: '0px 0px 40px #ffd900 ',
@@ -85,11 +101,19 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setShowPoints(!showpoints)}
-            className="flex flex-row items-center justify-center py-4 border hover:bg-white hover:text-yellow-500 rounded-lg"
+            className={
+              navfull
+                ? 'flex flex-row items-center justify-center mt-6 md:mt-0 py-4 border hover:bg-white hover:text-yellow-500 rounded-lg'
+                : 'hidden'
+            }
           >
             <a href="#" className="text-3xl leading-none px-2 lg:mt-0">
               <span className="px-2">
-                {user.points === 0 ? 'Add Points !!' : user.points}
+                {user.points === 0 ? (
+                  'Add Points !!'
+                ) : (
+                  <span>{user.points}</span>
+                )}
               </span>
               <Image src={AeroCoin} alt="Coins" width={30} height={20} />
             </a>

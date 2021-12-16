@@ -17,7 +17,7 @@ const history: React.FC<historyProps> = () => {
   return (
     <>
       <Layout title="Aerolab | History">
-        <h1 className="text-3xl text-center underline">History</h1>
+        <h1 className="text-3xl text-center  underline p-12">History</h1>
         <div className="flex justify-center my-6">
           <div className="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
             <div className="flex-1">

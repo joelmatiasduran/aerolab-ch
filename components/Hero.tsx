@@ -4,7 +4,7 @@ import AeroHero from '../assets/header-x1.png'
 const Hero: React.FC = () => {
   return (
     <>
-      <div className="h-96 md:h-full bg-aero-blue min-h-max">
+      <div className="h-96 md:h-full flex-grow bg-aero-blue min-h-max">
         <div className="relative top-0 left-0 pb-32 min-h-max md:min-h-fit lg:min-h-full">
           <Image src={AeroHero} alt="Headphones" layout="responsive" />
           <div className="absolute lg:top-32 md:top-20 top-10  left-0 container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
                 </h1>
                 <hr className="w-12 h-1 bg-orange-500 rounded-full mt-8"></hr>
 
-                <p className="w-full md:max-w-lg lg:max-w-xl text-gray-800 text-base leading-relaxed pt-14 md:pt-8 lg:pt-16 md:mt-8  font-semibold">
+                <p className="w-full px-6 md:px-0 md:max-w-lg lg:max-w-xl text-gray-800 text-base leading-relaxed pt-14 md:pt-8 lg:pt-16 md:mt-8  font-semibold">
                   Your ultimate e-commerce site. Carries all the information you
                   need while redeeming your favorite products
                 </p>
