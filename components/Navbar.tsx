@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
           className={
             navfull
               ? 'items-center justify-center transform w-full h-full block flex-grow lg:flex lg:items-center lg:w-auto'
-              : 'absolute transform h-0 duration-300'
+              : 'absolute transform h-0'
           }
         >
           <div className={navfull ? 'text-sm lg:flex-grow' : 'hidden'}>
