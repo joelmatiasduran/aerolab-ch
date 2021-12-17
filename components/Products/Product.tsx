@@ -10,17 +10,10 @@ import ProductLoader from './ProductLoader'
 
 interface ProductProps {
   products: ProductsTypes
-  index: number
   userCash: number
-  key: number
 }
 
-const Product: React.FC<ProductProps> = ({
-  products,
-  index,
-  userCash,
-  key,
-}) => {
+const Product: React.FC<ProductProps> = ({ products, userCash }) => {
   //State For Hover Effects
   const [isHovered, setIsHovered] = useState<boolean>(false)
   //State For Modals
@@ -60,7 +53,6 @@ const Product: React.FC<ProductProps> = ({
           whileHover={{
             boxShadow: '0px 0px 40px #ffd900 ',
           }}
-          key={key}
           onMouseOver={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-white border border-gray-200 p-6 rounded-xl cursor-pointer"
@@ -69,7 +61,6 @@ const Product: React.FC<ProductProps> = ({
             <Image src={AeroBuy} alt="Coins" width={150} height={100} />
           </div>
           <Image
-            key={index}
             src={products.img.hdUrl ? products.img.hdUrl : products.img.url}
             alt={products.name}
             width={250}
@@ -100,7 +91,7 @@ const Product: React.FC<ProductProps> = ({
                       ) : isSuccessful === 'error' ? (
                         <span>Error</span>
                       ) : (
-                        'Redeem Now'
+                        'Processing...'
                       )
                     ) : (
                       'Redeem Now'
@@ -142,7 +133,7 @@ const Product: React.FC<ProductProps> = ({
           </>
         </motion.div>
       ) : (
-        <ProductLoader key={index} />
+        <ProductLoader />
       )}
     </>
   )

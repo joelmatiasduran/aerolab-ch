@@ -1,8 +1,4 @@
-interface ProductLoaderProps {
-  key: number
-}
-
-const ProductLoader: React.FC<ProductLoaderProps> = () => {
+const ProductLoader: React.FC = () => {
   return (
     <>
       <div className="flex items-center justify-center">

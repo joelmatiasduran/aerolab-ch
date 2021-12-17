@@ -42,11 +42,11 @@ const history: React.FC<historyProps> = () => {
                   </tr>
                 </thead>
                 {data ? (
-                  data.reverse().map((data, index) => {
+                  data.reverse().map((data) => {
                     return (
                       <>
                         <tbody
-                          key={index}
+                          key={data._id}
                           className="hover:z-10 hover:py-12  duration-150 transform hover:scale-110 cursor-pointer hover:rounded-full"
                         >
                           <tr className="">
