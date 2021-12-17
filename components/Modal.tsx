@@ -8,20 +8,23 @@ interface ModaProps {
 }
 
 const Modal: React.FC<ModaProps> = () => {
+  //Messages for the modal
   const { modalValue, setModalValue } = useContext(ModalContext)
+  //State for showing the modal
   const [isShowing, setIsShowing] = useState('')
 
   useEffect(() => {
     setIsShowing('in')
     let msg: string
     const newLocal = modalValue === 'Success!!' || 'Error'
-    newLocal ? (msg = 'Thanks for Redeeming') : (msg = 'Great!')
+    newLocal ? (msg = 'Thanks for Redeeming!') : (msg = 'Great!')
+
     setTimeout(() => {
-      //Insert a way to put the recent ones based on date by the
       setIsShowing('out')
       setModalValue(msg)
     }, 1500)
   }, [modalValue])
+
   return (
     <>
       <motion.div
