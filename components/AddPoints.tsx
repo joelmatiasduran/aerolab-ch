@@ -42,7 +42,7 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
           animate={{ y: 0 }}
           whileHover={{ boxShadow: '0px 0px 40px #00eeff', scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="text-2xl px-6 py-4 text-black bg-white   font-bold  rounded-xl cursor-pointer  mx-4"
+          className="text-base md:text-2xl px-4 md:px-6 py-4 text-black bg-white   font-bold  rounded-xl cursor-pointer  mx-4"
           onClick={() => handleAdd(1000)}
         >
           +1000
@@ -54,7 +54,7 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
           whileHover={{ boxShadow: '0px 0px 40px #ff0000', scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleAdd(5000)}
-          className="text-2xl px-6 py-4 bg-black text-white font-bold  rounded-xl cursor-pointer  mx-4"
+          className="text-base md:text-2xl px-4 md:px-6 py-4 bg-black text-white font-bold  rounded-xl cursor-pointer  mx-4"
         >
           +5000
         </motion.button>
@@ -65,7 +65,7 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
           whileHover={{ boxShadow: '0px 0px 40px #ffe600', scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleAdd(7500)}
-          className="text-2xl px-6 py-4 text-black bg-yellow-400  hover:text-white font-bold  rounded-xl cursor-pointer mx-4"
+          className="text-base md:text-2xl px-4 md:px-6 py-4 text-black bg-yellow-400  hover:text-white font-bold  rounded-xl cursor-pointer mx-4"
         >
           +7000
         </motion.button>
