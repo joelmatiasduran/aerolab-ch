@@ -3,6 +3,7 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import Head from 'next/head'
 import { fetcher } from '../utils/functions'
+import Modal from './Modal'
 
 interface Props {
   children?: React.ReactNode
@@ -24,7 +25,10 @@ const Layout: React.FC<Props> = ({ children, title }) => {
       <header>
         <Navbar user={user ? user : 'Loading ...'} />
       </header>
-      <main>{children}</main>
+      <main className="relative">
+        <Modal />
+        {children}
+      </main>
       <Footer />
     </>
   )

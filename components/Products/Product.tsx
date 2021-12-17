@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { mutate } from 'swr'
 import { motion } from 'framer-motion'
 import { ProductsTypes } from '../../interfaces/AeroTypes'
 import Image from 'next/image'
 import AeroCoin from '../../assets/icons/coin.svg'
 import AeroBuy from '../../assets/icons/buy-white.svg'
+import { ModalContext } from '../../contexts/ModalContext'
 
 import ProductLoader from './ProductLoader'
 
@@ -17,6 +18,8 @@ const Product: React.FC<ProductProps> = ({ products, userCash }) => {
   //State For Hover Effects
   const [isHovered, setIsHovered] = useState<boolean>(false)
   //State For Modals
+  const { setModalValue } = useContext(ModalContext)
+
   const [isRedeeming, setIsRedeeming] = useState<boolean>(false)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isSuccessful, setIsSuccessful] = useState<string | null>('')
@@ -39,7 +42,7 @@ const Product: React.FC<ProductProps> = ({ products, userCash }) => {
     setIsRedeeming(false)
 
     setIsSuccessful(response.status === 200 ? 'success' : 'error')
-
+    setModalValue(response.status === 200 ? 'Success!!' : 'Error')
     mutate('/api/user/me', { ...products, points: userCash - products.cost })
     mutate('/api/user/history')
   }
@@ -84,18 +87,7 @@ const Product: React.FC<ProductProps> = ({ products, userCash }) => {
               >
                 <div className="flex flex-row justify-between w-full min-w-full py-2 bg-yellow-500 hover:bg-indigo-700 text-white rounded-lg duration-300">
                   <span className="text-lg pl-4">
-                    {isRedeeming ? (
-                      <span>Processing...</span> &&
-                      isSuccessful === 'success' ? (
-                        <span>Success!!</span>
-                      ) : isSuccessful === 'error' ? (
-                        <span>Error</span>
-                      ) : (
-                        'Processing...'
-                      )
-                    ) : (
-                      'Redeem Now'
-                    )}
+                    {isRedeeming ? <span>Processing...</span> : 'Redeem Now'}
                   </span>
                   <div className="flex flex-row items-center justify-center">
                     {isRedeeming ? (

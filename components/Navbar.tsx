@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <a className="flex flex-row items-center justify-center">
               <Image src={AeroLogo} alt="Aerolab Logo" width={50} height={50} />
               <span className="px-4 font-semibold text-xl tracking-tight">
-                {user.name}
+                {user.name ? user.name : 'Loading...'}
               </span>
             </a>
           </Link>
@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               <a
                 href="#responsive-header"
                 className="block mt-4 lg:inline-block
-                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7"
+                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7 md:p-0"
               >
                 {' '}
                 HOME
@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <a
               href="https://github.com/joelmatiasduran/aerolab-ch"
               target="_blank"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7 md:p-0"
               rel="noreferrer"
             >
               CODE
@@ -78,18 +78,14 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               <a
                 href="#responsive-header"
                 className="block mt-4 lg:inline-block
-                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7"
+                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7 md:p-0"
               >
                 {' '}
                 HISTORY
               </a>
             </Link>
           </div>
-          <a
-            href="/history"
-            className="flex flex-row items-center justify-center mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 r-0 text-base hover:text-white"
-            p-7
-          >
+          <span className="flex flex-row items-center justify-center mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 r-0 text-base hover:text-white">
             {user.points === 0 ? (
               ''
             ) : (
@@ -111,7 +107,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 +
               </motion.button>
             )}
-          </a>
+          </span>
           <motion.div
             whileHover={{
               boxShadow: '0px 0px 40px #ffd900 ',
@@ -130,7 +126,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 {user.points === 0 ? (
                   'Add Points !!'
                 ) : (
-                  <span>{user.points}</span>
+                  <span>{user.points ? user.points : '...'}</span>
                 )}
               </span>
               <Image src={AeroCoin} alt="Coins" width={30} height={20} />
