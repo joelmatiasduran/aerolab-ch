@@ -20,11 +20,10 @@ const Products: React.FC<ProductsProps> = ({ user }) => {
 
   //Refactor
   const userCash = user.points
-
+  //State for animation
   const [isFiltering, setIsFiltering] = useState<string>('')
   //Sorting
   const [list, setList] = useState<[] | null | undefined>([])
-
   const [isSorting, setIsSorting] = useState<boolean>(false)
 
   //Handlers
