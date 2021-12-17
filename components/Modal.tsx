@@ -13,11 +13,13 @@ const Modal: React.FC<ModaProps> = () => {
 
   useEffect(() => {
     setIsShowing('in')
-
+    let msg: string
+    const newLocal = modalValue === 'Success!!' || 'Error'
+    newLocal ? (msg = 'Thanks for Redeeming') : (msg = 'Great!')
     setTimeout(() => {
       //Insert a way to put the recent ones based on date by the
       setIsShowing('out')
-      setModalValue('Thanks for redeeming!')
+      setModalValue(msg)
     }, 1500)
   }, [modalValue])
   return (

@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { mutate } from 'swr'
 import { motion } from 'framer-motion'
+import { ModalContext } from '../contexts/ModalContext'
 
 interface AddPointsProps {
   points: number
@@ -8,15 +9,9 @@ interface AddPointsProps {
 }
 
 const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
-  const [isRedeeming, setIsRedeeming] = useState({
-    1000: false,
-    5000: false,
-    7500: false,
-  })
+  const { setModalValue } = useContext(ModalContext)
 
   const handleAdd = async (amount: number): Promise<void> => {
-    setIsRedeeming((isRedeeming) => ({ ...isRedeeming, [amount]: true }))
-
     await fetch('/api/user/points', {
       method: 'POST',
       headers: {
@@ -26,8 +21,7 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
         amount: amount,
       }),
     })
-    isRedeeming
-    // setIsRedeeming((isRedeeming) => ({ ...isRedeeming, [amount]: false }))
+    setModalValue(`You have added $ ${amount}`)
     mutate('/api/user/me', { ...user, points: points + amount })
   }
   return (
