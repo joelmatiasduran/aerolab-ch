@@ -42,8 +42,8 @@ const AddPoints: React.FC<AddPointsProps> = ({ points, user }) => {
           animate={{ y: 0 }}
           whileHover={{ boxShadow: '0px 0px 40px #00eeff', scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          onClick={() => handleAdd(1000)}
           className="text-2xl px-6 py-4 text-black bg-white   font-bold  rounded-xl cursor-pointer  mx-4"
+          onClick={() => handleAdd(1000)}
         >
           +1000
         </motion.button>

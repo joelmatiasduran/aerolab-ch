@@ -45,16 +45,20 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         <div
           className={
             navfull
-              ? 'items-center justify-center transform w-full h-full block flex-grow lg:flex lg:items-center lg:w-auto'
+              ? 'items-center justify-center transform w-full h-full p-6 md:p-0 block flex-grow lg:flex lg:items-center lg:w-auto'
               : 'absolute transform h-0'
           }
         >
-          <div className={navfull ? 'text-sm lg:flex-grow' : 'hidden'}>
+          <div
+            className={
+              navfull ? 'text-sm lg:flex-grow' : 'hidden flex-row-reverse'
+            }
+          >
             <Link href="/">
               <a
                 href="#responsive-header"
                 className="block mt-4 lg:inline-block
-                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4"
+                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7"
               >
                 {' '}
                 HOME
@@ -64,36 +68,50 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <a
               href="https://github.com/joelmatiasduran/aerolab-ch"
               target="_blank"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7"
               rel="noreferrer"
             >
               CODE
             </a>
 
-            <a
-              href="/history"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white"
-            >
-              HISTORY
-            </a>
+            <Link href="/history">
+              <a
+                href="#responsive-header"
+                className="block mt-4 lg:inline-block
+                lg:mt-0 text-teal-200 duration-150 border-transparent border-b-2 hover:border-white text-base hover:text-white mr-4 p-7"
+              >
+                {' '}
+                HISTORY
+              </a>
+            </Link>
           </div>
-          {user.points === 0 ? (
-            ''
-          ) : (
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                backgroundColor: '#18dcfc',
-                boxShadow: '0px 0px 40px #00ffd5',
-                border: 'transparent',
-              }}
-              whileTap={{ scale: 0.9 }}
-              className="flex  md:flex-row flex-row-reverse justify-center items-center text-2xl border-white bg-pink-600 border-2 rounded-full p-6 h-10 w-10 mr-4"
-              onClick={() => setShowPoints(!showpoints)}
-            >
-              +
-            </motion.button>
-          )}
+          <a
+            href="/history"
+            className="flex flex-row items-center justify-center mt-4 lg:inline-block lg:mt-0 text-teal-200 duration-150 r-0 text-base hover:text-white"
+            p-7
+          >
+            {user.points === 0 ? (
+              ''
+            ) : (
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: '#18dcfc',
+                  boxShadow: '0px 0px 40px #00ffd5',
+                  border: 'transparent',
+                }}
+                whileTap={{ scale: 0.9 }}
+                className={
+                  navfull
+                    ? 'flex md:flex-row flex-row-reverse justify-center items-center text-2xl border-white bg-pink-600 border-2 rounded-full  md:p-6 h-10 w-10 mr-4'
+                    : 'hidden'
+                }
+                onClick={() => setShowPoints(!showpoints)}
+              >
+                +
+              </motion.button>
+            )}
+          </a>
           <motion.div
             whileHover={{
               boxShadow: '0px 0px 40px #ffd900 ',
